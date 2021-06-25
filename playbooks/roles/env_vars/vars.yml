@@ -1,0 +1,8 @@
+---
+# node version
+node:
+  version: "11.x"
+
+# nginx
+nginx:
+  version: "nginx"

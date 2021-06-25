@@ -1,6 +1,0 @@
----
-# aws cli
-
-# node version
-node:
-  version: "11.x"
