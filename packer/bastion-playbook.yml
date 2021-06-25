@@ -1,0 +1,4 @@
+---
+- import_playbook: "../playbooks/roles/common/tasks/main.yml"
+- import_playbook: "../playbooks/roles/awscli/tasks/main.yml"
+- import_playbook: "../playbooks/roles/kubectl/tasks/main.yml"

@@ -1,0 +1,7 @@
+---
+- name: awscli ansible play book
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install AWS CLI from PIP
+      pip: name="awscli"

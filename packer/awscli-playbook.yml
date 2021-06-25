@@ -1,2 +1,0 @@
----
-- import_playbook: "../playbooks/roles/aws/tasks/main.yml"

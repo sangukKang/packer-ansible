@@ -1,0 +1,50 @@
+---
+- name: kubectl ansible play book
+  hosts: all
+  become: yes
+  become_user: ubuntu
+#  become_method: sudo
+  pre_tasks:
+    - include_vars: "../vars/var.yml"
+  tasks:
+    # Download 1.19
+    - name: Downloading kubectl
+      get_url:
+        url: "{{ kubectl_1_19 }}"
+        dest: "$HOME/kubectl"
+
+    # 실행 권한
+    - name: "Mode 777 for file"
+      file:
+        path: "$HOME/kubectl"
+        mode: 0777
+
+    # 디렉토리 생성
+    - name: kube bin directory mkdir
+      file:
+        path: "$HOME/bin"
+        state: "directory"
+
+    # print
+    - name: env echo test
+      shell: ls -al $HOME
+      register: result
+    - name: print env
+      debug: var=result
+
+    # 파일 복사
+    - name: file copy module
+      copy:
+        src: '$HOME/kubectl'
+        dest: "$HOME/bin/kubectl"
+        mode: 0775
+        remote_src: yes
+
+    # PATH 추가
+    - name: kubectl home bashrc
+      command: "echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc"
+
+    # kubectl autocompletion
+    - name: kubectl autocompletion
+      command: "echo 'source <(kubectl completion bash)' >> /home/ubuntu/.bashrc"
+
