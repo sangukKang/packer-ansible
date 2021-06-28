@@ -11,5 +11,5 @@
         state: present
 
     # npm cli
-    - name: npm cli global install
-      shell: "npm i -g @vue/cli"
+#    - name: npm cli global install
+#      shell: "npm i -g @vue/cli"
