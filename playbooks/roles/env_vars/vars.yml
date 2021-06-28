@@ -6,3 +6,7 @@ node:
 # nginx
 nginx:
   version: "nginx"
+
+#java
+java:
+  version: 8

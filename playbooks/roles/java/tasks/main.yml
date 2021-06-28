@@ -1,0 +1,15 @@
+---
+- name: Install java
+  hosts: all
+  gather_facts: true
+  become: yes
+  pre_tasks:
+    - include_vars: "../../env_vars/vars.yml"
+  tasks:
+    - name: Include version-specific variables for Debian.
+      include_vars: "../vars/var.yml"
+
+    - name: Ensure Java is installed.
+      apt:
+        name: "{{ __java_packages }}"
+        state: present

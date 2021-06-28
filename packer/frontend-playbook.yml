@@ -2,3 +2,4 @@
 - import_playbook: "../playbooks/roles/common/tasks/main.yml"
 - import_playbook: "../playbooks/roles/nodejs/tasks/main.yml"
 - import_playbook: "../playbooks/roles/nginx/tasks/main.yml"
+- import_playbook: "../playbooks/roles/java/tasks/main.yml"
